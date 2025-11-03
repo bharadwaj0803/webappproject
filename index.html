@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Election Monitoring System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0047ab;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #003580;
+      padding: 10px;
+    }
+    nav button {
+      background: white;
+      color: #003580;
+      border: none;
+      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    nav button:hover {
+      background: #0047ab;
+      color: white;
+    }
+    .container {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .section {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .section.active {
+      display: block;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button.action {
+      background: #0047ab;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+    button.action:hover {
+      background: #003580;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Election Monitoring System</h1>
+    <p>Transparency | Participation | Fairness</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('admin')">Admin</button>
+    <button onclick="showSection('citizen')">Citizen</button>
+    <button onclick="showSection('observer')">Observer</button>
+    <button onclick="showSection('analyst')">Analyst</button>
+  </nav>
+
+  <div class="container">
+    <!-- Admin Section -->
+    <div id="admin" class="section">
+      <h2>Admin Panel</h2>
+      <input type="text" placeholder="Candidate Name">
+      <input type="text" placeholder="Party Name">
+      <button class="action">Add Candidate</button>
+      <button class="action">View Reports</button>
+    </div>
+
+    <!-- Citizen Section -->
+    <div id="citizen" class="section">
+      <h2>Citizen Report</h2>
+      <textarea placeholder="Describe issue (e.g., booth capturing, fake votes)..."></textarea>
+      <button class="action">Submit Report</button>
+    </div>
+
+    <!-- Observer Section -->
+    <div id="observer" class="section">
+      <h2>Observer Dashboard</h2>
+      <p>Review citizen reports and mark status:</p>
+      <select>
+        <option>Pending</option>
+        <option>Verified</option>
+        <option>False Report</option>
+      </select>
+      <button class="action">Update Status</button>
+    </div>
+
+    <!-- Analyst Section -->
+    <div id="analyst" class="section">
+      <h2>Data Analysis</h2>
+      <button class="action">Generate Report</button>
+      <button class="action">View Statistics</button>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
